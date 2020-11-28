@@ -17,39 +17,50 @@ void	ft_putchar(char caracter)
 	write(1, &caracter, 1);
 }
 
-void	rush_auxiliar(int y, int p_f, int x, int p_c)
+void	rush_auxiliar(int y, int primera_columna, int x, int primera_fila)
 {
-	if (x == 1 || x == p_f)
+	if (x == primera_fila || x == 1)
 	{
-		if ((x == p_f && y == p_c) || (x == 1 && y == 1 && p_f > 1 && p_c > 1))
-			ft_putchar('/');
-		else if ((y == 1 && x == p_f) || (y == p_c && x == 1))
-			ft_putchar('\\');
+		if (x == primera_fila )
+		{   if(y==primera_columna || y==1)
+                ft_putchar('A');
+            else
+                ft_putchar('B');            
+		}
 		else
-			ft_putchar('*');
+		{
+			if(y==primera_columna || y==1)
+                ft_putchar('C');
+            else
+                ft_putchar('B'); 
+		}
 	}
 	else
 	{
-		if (y == p_c || y == 1)
-			ft_putchar('*');
+		if (y == primera_columna || y == 1)
+		{
+			ft_putchar('B');
+		}
 		else
+		{
 			ft_putchar(' ');
+		}
 	}
 }
 
 void	rush(int x, int y)
 {
-	int p_f;
-	int p_c;
+	int		primera_fila;
+	int		primera_columna;
 
-	p_f = x;
-	p_c = y;
+	primera_fila = x;
+	primera_columna = y;
 	while (x > 0)
 	{
-		y = p_c;
+		y = primera_fila;
 		while (y > 0)
 		{
-			rush_auxiliar(y, p_f, x, p_c);
+			rush_auxiliar(y, primera_columna, x, primera_fila);
 			y--;
 		}
 		ft_putchar('\n');
@@ -59,5 +70,5 @@ void	rush(int x, int y)
 
 int		main(void)
 {
-	rush(5, 1);
+	rush(4, 4);
 }
