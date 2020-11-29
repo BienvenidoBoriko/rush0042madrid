@@ -1,43 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rush02.c                                           :+:      :+:    :+:   */
+/*   rush03.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bboriko- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/28 22:05:25 by bboriko-          #+#    #+#             */
-/*   Updated: 2020/11/29 11:00:51 by bboriko-         ###   ########.fr       */
+/*   Created: 2020/11/29 14:04:06 by bboriko-          #+#    #+#             */
+/*   Updated: 2020/11/29 14:04:14 by bboriko-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_putchar(char caracter)
-{
-	write(1, &caracter, 1);
-}
+void	ft_putchar(char caracter);
 
 void	rush_auxiliar(int y, int primera_columna, int x, int primera_fila)
 {
-	if (x == primera_fila || x == 1)
+	if (y == primera_fila || y == 1)
 	{
-		 if(y==primera_columna )
+		if (x == primera_columna)
 			ft_putchar('A');
-		else if(y==1)
+		else if (x == 1)
 			ft_putchar('C');
 		else
-			ft_putchar('B'); 
+			ft_putchar('B');
 	}
 	else
 	{
-		if (y == primera_columna || y == 1)
-		{
+		if (x == primera_columna || x == 1)
 			ft_putchar('B');
-		}
 		else
-		{
 			ft_putchar(' ');
-		}
 	}
 }
 
@@ -46,22 +37,17 @@ void	rush(int x, int y)
 	int		primera_fila;
 	int		primera_columna;
 
-	primera_fila = x;
-	primera_columna = y;
-	while (x > 0)
+	primera_columna = x;
+	primera_fila = y;
+	while (y > 0)
 	{
-		y = primera_fila;
-		while (y > 0)
+		x = primera_columna;
+		while (x > 0)
 		{
 			rush_auxiliar(y, primera_columna, x, primera_fila);
-			y--;
+			x--;
 		}
 		ft_putchar('\n');
-		x--;
+		y--;
 	}
-}
-
-int		main(void)
-{
-	rush(4, 4);
 }
