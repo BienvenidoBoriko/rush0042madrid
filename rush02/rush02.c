@@ -6,7 +6,7 @@
 /*   By: bboriko- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/28 22:05:25 by bboriko-          #+#    #+#             */
-/*   Updated: 2020/11/28 22:07:53 by bboriko-         ###   ########.fr       */
+/*   Updated: 2020/11/29 11:00:51 by bboriko-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,19 +21,12 @@ void	rush_auxiliar(int y, int primera_columna, int x, int primera_fila)
 {
 	if (x == primera_fila || x == 1)
 	{
-		if (x == primera_fila )
-		{   if(y==primera_columna || y==1)
-                ft_putchar('A');
-            else
-                ft_putchar('B');            
-		}
+		 if(y==primera_columna )
+			ft_putchar('A');
+		else if(y==1)
+			ft_putchar('C');
 		else
-		{
-			if(y==primera_columna || y==1)
-                ft_putchar('C');
-            else
-                ft_putchar('B'); 
-		}
+			ft_putchar('B'); 
 	}
 	else
 	{
